@@ -36,6 +36,8 @@ def register():
         course = request.form.get("course", "").strip()
         if not name:
             errors.append("Name is required.")
+            elif len(name) < 3:
+            errors.append("Name must be at least 3 characters.")
         if "@" not in email or "." not in email:
             errors.append("Enter a valid email.")
         if course not in [c[0] for c in COURSES]:
